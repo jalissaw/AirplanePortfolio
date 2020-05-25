@@ -8,53 +8,113 @@
     <title>Jovan Elmore</title>
 </head>
 <body>
-    <header>
+    <header id="home">
         <div class="menu">
             <input type="checkbox" class="toggler">
             <span></span>
         </div>
+
+        <div class="showmenu">
+            <ul class="showlinks">
+                <li class="showlink"><a href="#home">Home</a></li>
+                <li class="showlink"><a href="#about">About</a></li>
+                <li class="showlink"><a href="#">Aviation</a></li>
+                <li class="showlink"><a href="#contact">Contact</a></li>
+                <li class="showlink"><a href="#projects">Projects</a></li>
+            </ul>
+        </div>
         <nav class="navbar">
             <ul class="links">
-                <li class="link"><a href="#">Home</a></li>
-                <li class="link"><a href="#">About</a></li>
-                <li class="link"><a href="#">Aviation</a></li>
-                <li class="link"><a href="#">Contact</a></li>
-                <li class="link"><a href="#">Projects</a></li>
+                <li class="link"><a href="#home">Home</a></li>
+                <li class="link"><a href="#about">About</a></li>
+                <li class="link"><a href="#">Avionics</a></li>
+                <li class="link"><a href="#contact">Contact</a></li>
+                <li class="link"><a href="#projects">Projects</a></li>
             </ul>
         </nav>
         <div class="intro">
             <h1 class="name"><span class="first">Jovan </span class="last"><span>Elmore</span></h1>
-            <h2 class="title">Aviation Specalist</h2>
+            <h2 class="title">Aviation Technician</h2>
         </div>
-            <img class="airplaneleft wings" src="\imgs\FfRZvZFh01.svg" alt="left side of airplane">
+            <img class="airplaneleft wings" src="\imgs\LFwtp2C201.svg" alt="left side of airplane">
             <img class="airplaneright wings" src="\imgs\VRjCKGg201.svg" alt="right side of airplane">
     </header>
 
     <main>
-        <div class="about">
+        <div class="about" id="about">
             <div class="intro">
-                <p class="introtext">What I Do</p>
+                <h2 class="introtext">What I Do</h2>
             </div>
             <div class="skill">
                 <div class="maintain">
-                    <i class="fas fa-lightbulb"></i>
+                    <i class="fas fa-tools"></i>
                     <h3>Maintence</h3>
                     <p class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, non.</p>
                 </div>
                 <div class="maintain">
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-wrench"></i>
                     <h3>Repair</h3>
                     <p class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, non.</p>
                 </div>
                 <div class="maintain">
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-lightbulb"></i>
                     <h3>Innovation</h3>
                     <p class="info">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, non.</p>
                 </div>
             </div>
         </div>
-
-        
+        <div class="project" id="projects">
+            <div class="projecttitle">
+                <h2 class="projectname">My Projects</h2>
+            </div>
+            <div class="myprojects">
+                <div class="cards">
+                    <div class="card">
+                        <img src="imgs/2ZG01dx101.svg" class="slow">
+                        <p class="descript">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Blanditiis laborum dicta eius sapiente, dolorem accusamus a! 
+                            Id minima accusamus deleniti.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="imgs/2ZG01dx101.svg" class="fast">
+                        <p class="descript">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Blanditiis laborum dicta eius sapiente, dolorem accusamus a! 
+                            Id minima accusamus deleniti.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="imgs/2ZG01dx101.svg" class="faster">
+                        <p class="descript">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Blanditiis laborum dicta eius sapiente, dolorem accusamus a! 
+                            Id minima accusamus deleniti.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <footer>
+        <div class="contact" id="contact">
+            <div class="logo">
+                <h3><i class="fab fa-atlassian left"></i>Jovan Elmore<i class="fab fa-atlassian right"></i></h3>
+            </div>
+            <div class="mycontact">
+                <h4>Contact Me:</h4>
+                <div class="contactinfo">
+                    <div class="number info"><i class="fas fa-phone"></i>313-713-0694</div>
+                    <div class="myemail info"> <i class="fas fa-envelope"></i>joveanelmore@gmail.com</div>
+                    <div class="linkedin info">
+                        <a href="https://www.linkedin.com/in/jovan-elmore-8a3099179/" class="info"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script src="main.js"></script>
 </body>
 </html>
