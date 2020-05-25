@@ -26,9 +26,11 @@
 
 .navbar .links .link {
   padding: 10px;
-  font-size: 1.3em;
+  font-size: 1.4em;
   text-transform: uppercase;
   margin: 0px 12px;
+  -webkit-transition: ease-in 0.4s 1s;
+  transition: ease-in 0.4s 1s;
 }
 
 @media (max-width: 650px) {
@@ -48,7 +50,7 @@
 }
 
 .navbar .links .link a:hover {
-  background: red;
+  -webkit-text-stroke-color: white;
 }
 
 .menu {
@@ -73,7 +75,7 @@
   background: red;
   border-radius: 40px;
   border: black solid 2px;
-  z-index: 5;
+  z-index: 9;
 }
 
 .menu .toggler {
@@ -110,6 +112,69 @@
   background: black;
 }
 
+.showmenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 6;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: ease-in 1s;
+  transition: ease-in 1s;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  border-radius: 50%;
+}
+
+.showmenu.open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  background: black;
+  border-radius: 0;
+}
+
+.showmenu .showlinks {
+  list-style-type: none;
+}
+
+.showmenu .showlinks .showlink {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin: 10px 0px;
+  -webkit-transition: ease-in 0.4s 1s;
+  transition: ease-in 0.4s 1s;
+  opacity: 0;
+}
+
+.showmenu .showlinks .showlink.open {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.showmenu .showlinks .showlink a {
+  text-decoration: none;
+  color: red;
+  -webkit-transition: ease-in 0.6s;
+  transition: ease-in 0.6s;
+}
+
 main {
   height: 100%;
   width: 100%;
@@ -135,6 +200,10 @@ main .about .intro {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -152,6 +221,18 @@ main .about .intro .introtext {
   color: red;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+}
+
+@media (max-width: 320px) {
+  main .about .intro .introtext {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+  main .about .intro .introtext {
+    font-size: 3.5em;
+  }
 }
 
 main .skill {
@@ -192,12 +273,23 @@ main .skill .maintain {
           flex-direction: column;
   text-align: center;
   width: 100%;
-  margin: 20px;
   padding: 10px 0;
+  margin: 20px 0px;
+  opacity: 0;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  -webkit-transition: ease-in 0.6s 0.3s;
+  transition: ease-in 0.6s 0.3s;
+}
+
+main .skill .maintain.appear {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 main .skill .maintain h3 {
-  font-size: 2.5em;
+  font-size: 2em;
   text-transform: uppercase;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: red;
@@ -214,12 +306,330 @@ main .skill .maintain p {
   width: 50%;
 }
 
+main .project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-transition: ease-in 0.5s;
+  transition: ease-in 0.5s;
+}
+
+main .project .projecttitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background: red;
+  padding: 20px;
+}
+
+main .project .projecttitle .projectname {
+  color: transparent;
+  font-size: 3.5em;
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  text-transform: uppercase;
+}
+
+@media (max-width: 320px) {
+  main .project .projecttitle .projectname {
+    font-size: 2.5em;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+  main .project .projecttitle .projectname {
+    font-size: 2.5em;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 415px) {
+  main .project .projecttitle .projectname {
+    font-size: 2.5em;
+  }
+}
+
+main .project .myprojects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  background: black;
+}
+
+main .project .myprojects .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+main .project .myprojects .cards .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0px 20px;
+  padding: 10px 10px;
+  width: 225px;
+  opacity: 0;
+  -webkit-transform: translateX(15px);
+          transform: translateX(15px);
+  -webkit-transition: ease-in 0.4s 0.3s;
+  transition: ease-in 0.4s 0.3s;
+}
+
+main .project .myprojects .cards .card.appear {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+main .project .myprojects .cards .card img {
+  width: 75%;
+  height: auto;
+  -webkit-animation: spin 3s ease-in infinite alternate;
+          animation: spin 3s ease-in infinite alternate;
+}
+
+main .project .myprojects .cards .card .slow {
+  -webkit-animation: spin 1s ease-in forwards infinite alternate;
+          animation: spin 1s ease-in forwards infinite alternate;
+}
+
+main .project .myprojects .cards .card .fast {
+  -webkit-animation: spin 5s ease-in forwards infinite alternate;
+          animation: spin 5s ease-in forwards infinite alternate;
+}
+
+main .project .myprojects .cards .card p {
+  color: white;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 319px) and (max-width: 415px) {
+  footer {
+    height: 40vh;
+  }
+}
+
+footer .contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 300px;
+}
+
+footer .contact .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background: red;
+  height: 100%;
+}
+
+footer .contact .logo h3 {
+  font-size: 2em;
+  color: transparent;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+}
+
+footer .contact .logo i {
+  font-size: 1em;
+}
+
+footer .contact .logo .left {
+  -webkit-transform: rotate(280deg);
+          transform: rotate(280deg);
+}
+
+footer .contact .logo .right {
+  -webkit-transform: rotate(90deg) scaleX(-1);
+          transform: rotate(90deg) scaleX(-1);
+  padding: 5px 2px;
+}
+
+footer .mycontact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  background: black;
+  height: 100%;
+  display: flex;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+footer .mycontact h4 {
+  color: transparent;
+  font-size: 2em;
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: red;
+}
+
+footer .contactinfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .contactinfo .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  padding: 0px 20px;
+  color: white;
+  margin: 10px 0px;
+}
+
+@media (min-width: 319px) and (max-width: 415px) {
+  footer .contactinfo .info {
+    width: 100%;
+  }
+}
+
+footer .contactinfo .info a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .contactinfo .info a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+footer .contactinfo .info i {
+  font-size: 1.5em;
+  color: red;
+  padding-bottom: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: Viga;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 header {
@@ -240,6 +650,7 @@ header .airplaneleft {
   position: absolute;
   top: 0;
   right: 0;
+  background: red;
   -webkit-animation: left 2s forwards;
           animation: left 2s forwards;
 }
@@ -272,6 +683,7 @@ header .intro {
 }
 
 header .intro .name {
+  z-index: 5;
   font-size: 4em;
   font-weight: 700;
   color: black;
@@ -280,10 +692,41 @@ header .intro .name {
   text-shadow: 1px 1px 2px black;
 }
 
+@media (max-width: 320px) {
+  header .intro .name {
+    font-size: 3.2em;
+    -webkit-transform: translate(0px, 20px);
+            transform: translate(0px, 20px);
+  }
+}
+
 header .intro .title {
+  z-index: 5;
   text-align: center;
-  font-size: 2em;
+  font-size: 2.2em;
   color: white;
+  margin-top: 10px;
+}
+
+@media (max-width: 320px) {
+  header .intro .title {
+    -webkit-transform: translate(0px, 200px);
+            transform: translate(0px, 200px);
+  }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+  header .intro .title {
+    -webkit-transform: translate(0px, 200px);
+            transform: translate(0px, 200px);
+  }
+}
+
+@media (min-width: 376px) and (max-width: 415px) {
+  header .intro .title {
+    -webkit-transform: translate(0px, 250px);
+            transform: translate(0px, 250px);
+  }
 }
 
 @-webkit-keyframes right {
@@ -330,8 +773,8 @@ header .intro .title {
   }
   100% {
     width: 50%;
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    -webkit-transform: scaleX(12);
+            transform: scaleX(12);
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
@@ -347,8 +790,8 @@ header .intro .title {
   }
   100% {
     width: 50%;
-    -webkit-transform: scaleX(1);
-            transform: scaleX(1);
+    -webkit-transform: scaleX(12);
+            transform: scaleX(12);
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
