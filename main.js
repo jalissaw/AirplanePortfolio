@@ -4,6 +4,7 @@ const showLinks = document.querySelectorAll('.showlink');
 const showLink = document.querySelectorAll('.showlink a');
 const cards = document.querySelectorAll('.card')
 const maintain = document.querySelectorAll('.maintain')
+const form = document.querySelector('.form')
 
 
 //Toggler Menu Button
@@ -39,12 +40,6 @@ function closeMenu () {
 closeMenu()
 
 
-
-
-
-
-
-
 // Project card fade in when scrolled 
 function scrolled () {
     for (var i = 0; i < cards.length; i++) {
@@ -70,3 +65,39 @@ function scrolledMaintain () {
 }
 
 window.addEventListener('scroll', scrolledMaintain);
+
+function formAppear () {
+    const position = form.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+        if (position < screenPosition) {
+                   form.classList.add('appear');
+                }
+}
+
+window.addEventListener('scroll', formAppear);
+
+
+// Ajax
+const submit = document.querySelector('.submit');
+submit.addEventListener('click', (e) => {
+
+        const alertMessage = document.querySelector('.alert');
+        const email = document.querySelector('#email').value;
+        const name = document.querySelector('.name').value;
+        if (name === '' || email === '') {
+                    alertMessage.innerHTML = 'Name And Email Required';
+                    e.preventDefault();
+        } else {
+                    alertMessage.innerHTML = 'Success! Someone will be in touch with you soon!'
+        }
+
+        const http = new XMLHttpRequest();
+
+            http.onload = () => {
+            console.log("email sent!");
+            };
+
+            http.open('POST', '/index.html', true);
+            http.send();
+
+});
