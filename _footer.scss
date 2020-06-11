@@ -1,0 +1,228 @@
+footer {
+    width: 100%;
+    height: 100%;
+    @media #{$allphones} {
+        height: 40vh;
+    }
+    
+
+    .contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 300px;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            background: $primary-color;
+            height: 100%;
+
+            h3 {
+                font-size: 2em;
+                color: transparent;
+                -webkit-text-stroke-color: $secondary-color;
+                -webkit-text-stroke-width: 1px;
+            }
+
+            i {
+                font-size: 1em;
+            }
+
+            .left{
+                transform: rotate(280deg);
+            }
+
+            .right {
+                transform: rotate(90deg) scaleX(-1);
+                padding: 5px 2px;
+            }
+            
+        }
+
+    }  .mycontact {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
+        background: $secondary-color;
+        height: 100%;
+        flex-grow: 2;
+        padding-top: 20px;
+
+        h4 {
+            color: transparent;
+            font-size: 2em;
+            text-transform: uppercase;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: $primary-color;
+        }
+    }
+
+    .contactinfo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            padding: 0px 20px;
+            color: $tri-color;
+            margin: 10px 0px;
+            @media #{$allphones} {
+                width: 100%;
+            }
+
+            a {
+                color: $tri-color;
+                text-decoration: none;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+
+            i {
+                font-size: 1.5em;
+                color: $primary-color;
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    .contactform {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background: $secondary-color;
+        margin-top: -1px;
+        @media #{$allphones} {
+            height: 60vh;
+        }
+
+        @media #{$stablets} {
+            height: 60vh;
+        }
+       
+
+        form {
+            position: relative;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: ease-in 0.5s;
+            transform: translateY(0);
+
+            &.appear {
+                opacity: 1;
+                transform: translateY(20px);
+            }
+        }
+
+        input{
+            height: 35px;
+            width: 300px;
+            background: $primary-color;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 12px;
+            color: white;
+            padding-left: 10px;
+            
+            @media #{$allphones} {
+                width: 80%;
+            }
+
+            @media #{$stablets} {
+                width: 90%;
+            }
+            
+            &::placeholder {
+                color: $tri-color;
+                opacity: 1;
+            }
+        }
+
+        input[type="text"] {
+            margin-right: 12px;
+            
+            @media #{$allphones} {
+               margin-right: 0px;
+            }
+            @media #{$stablets} {
+                margin-right: 0px;
+            }
+        }
+
+        textarea {
+            display: block;
+            height: 130px;
+            width: 100%;
+            background: $primary-color;
+            resize: vertical;
+            border: none;
+            padding-left: 10px;
+            color: $tri-color;
+            border-radius: 5px;
+            @media #{$allphones} {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            @media #{$stablets} {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            &::placeholder {
+                color: $tri-color;
+                opacity: 1;
+            }
+        }
+
+        .submit {
+            height: 35px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            margin-top: 12px;
+            background: $primary-color;
+            color: transparent;
+            letter-spacing: 1px;
+            font-size: 1.3em;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: $tri-color;
+            @media #{$allphones} {
+                width: 80%;
+            }
+
+            @media #{$stablets} {
+                width: 90%;
+            }
+        }
+
+    }
+    // Pop up alert div
+    .alert {
+        position: absolute;
+        top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        color: white;
+        text-transform: uppercase;
+    }
+}
